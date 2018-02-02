@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>hengheng</title>
+    <style media="screen">
+      .container{
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .box{
+        width: 300px;
+      }
+      .title{
+        font-size: 20px;
+        text-align: center;
+      }
+      .btn{
+        position: relative;
+        border: 0;
+        height: 30px;
+        width: 50px;
+        line-height: 30px;
+        float: right;
+      }
+      .btnBox{
+        position: relative;
+        width: 300px;
+        height: 200px;
+      }
+      .changeA{
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="box">
+        <p class="title">你是猪吗？</p>
+        <div class="btnBox">
+          <button id="btn" onclick="btnClick()" class="btn" type="button" name="button">  <a id="a1">不是</a></button>
+        </div>
+        <span id="span1">倒计时：<a id="over"></a></span>
+      </div>
+
+    </div>
+  </body>
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js">
+
+  </script>
+  <script type="text/javascript">
+  $(function() {
+      $(".btn").mouseover(function(){
+          $(".btn").animate({right:'300px'},function(){
+            $(".btn").animate({right:'0'});
+          });
+
+      });
+  })
+
+    var num = 3;
+    var i = 20;
+    var interval ;
+    interval = setInterval("timeOver()", 1000);
+    function timeOver() {
+      document.getElementById("over").innerHTML = i;
+      if(i == 0 ){
+        document.getElementById("box").innerHTML = "嗯。。。果然是我的傻猪";
+        clearInterval(interval);
+      }
+      i--;
+    }
+
+    function btnClick(){
+      document.getElementById("box").innerHTML = "我的小公主最厉害了";
+    }
+
+
+
+
+  </script>
+</html>
